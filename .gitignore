@@ -1,4 +1,4 @@
-./backend/product_catalog
+.backend/product_catalog/migrations
 .devcontainer
 .vscode
 .idea

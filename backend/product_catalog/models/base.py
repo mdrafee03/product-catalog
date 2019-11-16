@@ -1,9 +1,13 @@
 from django.db import models
 
-__author__ = 'Fazlul Kabir Shohag'
+__author__ = 'Shohag'
 
 
 class DomainEntity(models.Model):
+    created_by = models.ForeignKey('product_catalog.ConsoleUser', related_name='+', null=True,
+                                   on_delete=models.SET_NULL)
+    last_updated_by = models.ForeignKey('product_catalog.ConsoleUser', related_name='+', null=True,
+                                        on_delete=models.SET_NULL)
     date_created = models.BigIntegerField(editable=False, default=0)
     last_updated = models.BigIntegerField(editable=False, default=0)
     is_active = models.BooleanField(default=True, editable=False)
