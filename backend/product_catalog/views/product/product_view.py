@@ -2,7 +2,6 @@ from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
 from rest_framework.response import Response
 
-from product_catalog.engine.pagination.standard_pagination import StandardResultsSetPagination
 from product_catalog.models import Product
 from product_catalog.serializers.product.product_serializer import ProductSerializer
 
