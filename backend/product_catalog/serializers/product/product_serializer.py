@@ -8,5 +8,5 @@ class ProductSerializer(DomainEntitySerializer):
     class Meta:
         model = Product
         fields = (
-            'id', 'name', 'translated_name',git stat 'description', 'translated_description', 'unit', 'sku', 'price',
+            'id', 'name', 'translated_name', 'description', 'translated_description', 'unit', 'sku', 'price',
             'attributes', 'slug')
