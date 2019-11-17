@@ -6,5 +6,6 @@ router = CustomRouter()
 
 router.register('product', ProductViewSet, base_name=Product.__name__)
 router.register('product/{pk}', ProductViewSet, base_name=Product.__name__)
+router.register('product/{pk}/attributes/', ProductViewSet, base_name=Product.__name__)
 
 urlpatterns = router.urls
