@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import viewsets, serializers
+from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
@@ -17,6 +17,18 @@ class ProductViewSet(viewsets.ViewSet):
     def retrieve(self, request, pk=None):
         queryset = Product.objects.all()
         product = get_object_or_404(queryset, pk=pk)
+        serializer = ProductSerializer(product)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['post'])
+    def prices(self, request, pk=None):
+        value = request.data.get('value')
+        active_from = request.data.get('active_from')
+        active_upto = request.data.get('active_upto')
+        queryset = Product.objects.all()
+        product = get_object_or_404(queryset, pk=pk)
+        product.price.create(value=value, active_from=active_from, active_upto=active_upto)
+        product.save()
         serializer = ProductSerializer(product)
         return Response(serializer.data)
 
