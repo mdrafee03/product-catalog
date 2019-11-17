@@ -12,6 +12,7 @@ class Product(DomainEntity):
     unit = models.CharField(max_length=1024, blank=True)
     sku = models.CharField(max_length=100, blank=True)
     price = models.ManyToManyField('product_catalog.ProductPrice', related_name="+")
+    attributes = models.ManyToManyField('product_catalog.ProductAttribute', related_name="attribute")
     slug = models.SlugField(unique=True, max_length=100)
 
     class Meta:
